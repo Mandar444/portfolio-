@@ -216,6 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (skillsPinWrapper && skillsTrack) {
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) return; // Skip on mobile
+
             const rect = skillsPinWrapper.getBoundingClientRect();
             // Position tracking: how much of the pin wrapper has passed the top of the viewport
             const scrollDistance = -rect.top;
@@ -247,6 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (gpWrapper && gpTyre) {
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) return; // Skip on mobile
+
             const rect = gpWrapper.getBoundingClientRect();
             const scrollDistance = -rect.top;
             const maxScrollDistance = rect.height - window.innerHeight;
