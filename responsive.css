@@ -1,0 +1,243 @@
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet & Mobile (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .hero-name-img {
+        width: 80%;
+    }
+
+    .hero-tagline {
+        font-size: 0.8rem;
+        padding: 0 20px;
+    }
+
+    #paddock .section-title,
+    #reviews .section-title,
+    #hall-of-fame .section-title {
+        font-size: 3.5rem;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+
+    /* Navigation */
+    nav {
+        padding: 20px;
+        position: relative;
+        transform: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid var(--lego-red);
+        background: var(--bg-cream);
+    }
+
+    .nav-container {
+        padding: 0;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        background: transparent;
+        border: none;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding-top: 50px;
+    }
+
+    .hero-name-img {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .hero-tagline {
+        font-size: 0.8rem;
+        margin-top: 30px;
+        line-height: 1.4;
+    }
+
+    .f1-car-overlay {
+        bottom: -150px;
+        right: -50px;
+        max-width: 120%;
+        width: 120%;
+        opacity: 0.8;
+    }
+
+    /* Resume Ticker */
+    .resume-ticker-content span {
+        font-size: 1.2rem;
+    }
+
+    .red-barrier {
+        height: auto;
+        min-height: 600px;
+        padding: 50px 0;
+    }
+
+    .resume-car-img {
+        max-width: 90%;
+    }
+
+    .resume-quote {
+        font-size: 1.2rem;
+        padding: 0 20px;
+    }
+
+    /* Paddock (Projects) Grid */
+    .paddock-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    /* Hall of Fame Podium - Stack Vertically */
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin-top: 50px;
+        gap: 50px;
+    }
+
+    .podium-slot {
+        width: 80%;
+        max-width: 320px;
+    }
+
+    /* Reorder for impact: Gold first */
+    .podium-slot.gold {
+        order: 1;
+        height: auto;
+        min-height: 400px;
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .podium-slot.silver {
+        order: 2;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .podium-slot.bronze {
+        order: 3;
+        height: auto;
+        min-height: 250px;
+    }
+
+    .trophy-overlay {
+        top: -250px;
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    @keyframes trophyFloat {
+
+        0%,
+        100% {
+            transform: translateX(-50%) scale(0.8) translateY(0);
+        }
+
+        50% {
+            transform: translateX(-50%) scale(0.8) translateY(-10px);
+        }
+    }
+
+    /* Project Grand Prix - Disable Pinning on Mobile */
+    .gp-pin-wrapper {
+        height: auto;
+    }
+
+    .gp-sticky {
+        position: relative;
+        height: auto;
+        top: 0;
+        overflow: visible;
+        padding: 50px 0;
+    }
+
+    .gp-track-wrapper {
+        flex-direction: column;
+        height: auto;
+        gap: 50px;
+    }
+
+    /* Hide Track Lines on mobile stack */
+    .gp-track-line,
+    .gp-finish-line,
+    .gp-tyre-tracker {
+        display: none;
+    }
+
+    .gp-checkpoint {
+        position: relative;
+        opacity: 1;
+        width: 100%;
+        height: auto;
+        margin-bottom: 40px;
+        top: auto !important;
+        /* Override inline styles */
+        left: auto !important;
+    }
+
+    .gp-card {
+        position: relative;
+        width: 90%;
+        max-width: 350px;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 0 auto;
+    }
+
+    /* Team Connect Radio Cards */
+    .radio-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .f1-radio-card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* Titles */
+    .section-title {
+        font-size: 3rem !important;
+        -webkit-text-stroke-width: 1px !important;
+        margin-bottom: 40px !important;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2.2rem !important;
+    }
+
+    .hero-tagline {
+        font-size: 0.7rem;
+    }
+
+    .paddock-rank {
+        font-size: 4rem;
+        right: 0;
+        bottom: 0;
+    }
+
+    .radio-transcript {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
