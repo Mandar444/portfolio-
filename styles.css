@@ -3,6 +3,16 @@
  * Based on user-provided screenshots of diversion.tech
  */
 
+@font-face {
+    font-family: 'F1 Font';
+    src: url('assets/f1.woff2') format('woff2'),
+        url('assets/f1.woff') format('woff'),
+        url('assets/f1.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Palette from Screenshots */
     --bg-cream: #FFFDF5;
@@ -2115,7 +2125,7 @@ nav::after {
 }
 
 .driver-name {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'F1 Font', sans-serif;
     font-weight: 800;
     font-size: 1.8rem;
     font-style: italic;
@@ -2224,7 +2234,7 @@ nav::after {
     padding: 25px;
     background: #fff;
     color: #111;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'F1 Font', sans-serif;
     font-style: italic;
     font-weight: 700;
     font-size: 1.2rem;
