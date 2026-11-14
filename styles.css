@@ -1329,7 +1329,7 @@ nav::after {
 /* --- Project Grand Prix Section (Pinning Effect) --- */
 /* --- Project Grand Prix Section (Pinning Effect) --- */
 .gp-pin-wrapper {
-    height: 350vh;
+    height: 600vh;
     /* Controlled scroll distance for speed */
     position: relative;
     background: var(--bg-cream);
@@ -1421,15 +1421,27 @@ nav::after {
 }
 
 #cp1 {
-    top: 10%;
+    top: 6%;
 }
 
 #cp2 {
-    top: 45%;
+    top: 20%;
 }
 
 #cp3 {
-    top: 80%;
+    top: 34%;
+}
+
+#cp4 {
+    top: 48%;
+}
+
+#cp5 {
+    top: 62%;
+}
+
+#cp6 {
+    top: 76%;
 }
 
 .gp-marker {
@@ -2256,4 +2268,65 @@ nav::after {
     color: rgba(255, 255, 255, 0.3);
     text-align: center;
     letter-spacing: 5px;
+}
+
+/* Project Grand Prix: room for six laps, title clear of the nav, tags separated.
+   responsive.css loads after this file, so the phone layout still applies. */
+.gp-sticky {
+    justify-content: flex-start;
+    padding-top: 112px;
+}
+
+.gp-sticky .section-title {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+}
+
+.gp-track-wrapper {
+    height: calc(100vh - 190px);
+    margin-top: 0;
+}
+
+.gp-card {
+    width: min(440px, calc(50vw - 200px));
+    padding: 20px 24px;
+}
+
+/* The lap you're on always sits above its neighbours. */
+.gp-checkpoint.active {
+    z-index: 5;
+}
+
+.gp-card h3 {
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.gp-card p {
+    margin-bottom: 12px;
+}
+
+.tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tech-pills span {
+    padding: 3px 9px;
+}
+
+/* Six cards can't all fit on shorter screens, so only the current lap's card shows there. */
+@media (min-width: 769px) and (max-height: 950px) {
+    .gp-checkpoint:not(.active) .gp-card {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* Keeps the first card clear of the title on small landscape tablets. */
+@media (min-width: 769px) and (max-width: 1100px) {
+    #cp1 .gp-card {
+        margin-top: 90px;
+    }
 }

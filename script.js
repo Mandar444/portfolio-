@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // A5: Typing Effect (Robust)
     const typingText = document.querySelector('.typing-text');
-    const roles = ["AI & ML DEVELOPER", "MOBILE APP DEVELOPER", "FULL-STACK ENGINEER", "DATA SCIENCE ENTHUSIAST", "HACKATHON CHAMPION"];
+    const roles = ["AN AI ENGINEER", "A BACKEND DEVELOPER", "A SEMANTIC SEARCH BUILDER", "A PRODUCT THINKER", "A NATIONAL HACKATHON FINALIST"];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -140,7 +140,16 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(32px)';
         el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
+        if (el.id === 'experience') {
+            new IntersectionObserver(([entry], io) => {
+                if (entry.isIntersecting) {
+                    el.classList.add('visible');
+                    io.disconnect();
+                }
+            }, { rootMargin: "0px 0px -50px 0px" }).observe(el);
+        } else {
+            observer.observe(el);
+        }
     });
 
     // A9: Timeline Dot Glow Observer (Individual dots)
@@ -265,15 +274,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 gpTyre.style.transform = `translateX(-50%) translateY(${translateY}px)`;
 
                 // 2. Activate Checkpoints
+                // Exactly one lap is active: whichever the tyre is closest to.
+                let nearest = null;
                 checkpoints.forEach(checkpoint => {
-                    const checkpointTop = checkpoint.offsetTop;
-                    const threshold = 120;
-                    if (translateY > checkpointTop - threshold && translateY < checkpointTop + threshold) {
-                        checkpoint.classList.add('active');
-                    } else {
-                        checkpoint.classList.remove('active');
+                    if (!nearest || Math.abs(translateY - checkpoint.offsetTop) < Math.abs(translateY - nearest.offsetTop)) {
+                        nearest = checkpoint;
                     }
                 });
+                checkpoints.forEach(checkpoint => checkpoint.classList.toggle('active', checkpoint === nearest));
             } else if (scrollDistance < 0) {
                 gpTyre.style.transform = `translateX(-50%) translateY(0px)`;
             } else if (scrollDistance > maxScrollDistance) {
